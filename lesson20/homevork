@@ -1,0 +1,33 @@
+# 1-masala
+#`BankAccount` klassini yarating.
+
+#Talablar:
+
+#- `__balance` private atribut bo'lsin.
+#- `deposit(amount)` metodi pul qo'shsin.
+#- `withdraw(amount)` metodi pul yechsin.
+#- `balance` property orqali balansni o'qish mumkin bo'lsin.
+#- Balans manfiy bo'lib qolmasin.
+
+class BankAccount:
+    def __init__(self):
+        self.__balance = 0
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def withdraw(self, amount):
+        if self.__balance >= amount:
+            self.__balance -= amount
+        else:
+            print("Insufficient balance")
+
+    @property
+    def balance(self):
+        return self.__balance
+
+account = BankAccount()
+account.deposit(1000)
+account.withdraw(500)
+print(account.balance)  
+
